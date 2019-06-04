@@ -15,7 +15,9 @@ df1=pd.DataFrame(columns=["a","b","c","d"])
 df1=df[['from_lat','from_long','to_lat','to_long']]
 locations = df1.values.tolist()
 # len(locations) is 34293
-for loc in locations[0:100]:
-    folium.Marker( location=[ loc[0], loc[1] ]).add_to( m )
+
+for loc in locations[0:200]:
+    folium.Marker(location=[ loc[0], loc[1] ],icon=folium.Icon(color="blue",icon_color='white',icon='taxi',prefix='fa')).add_to(m)
+    folium.Marker(location=[ loc[2], loc[3] ],icon=folium.Icon(color="red",icon_color='white',icon='taxi',prefix='fa')).add_to(m)
 
 m.save('map2.html')
